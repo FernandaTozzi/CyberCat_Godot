@@ -1,0 +1,220 @@
+[gd_scene load_steps=13 format=3 uid="uid://4dx262seifuq"]
+
+[ext_resource type="Script" uid="uid://b7mn4nlgwbjbg" path="res://scripts/enemy.gd" id="1_5i2um"]
+[ext_resource type="Texture2D" uid="uid://cur2e4a5ja0yt" path="res://assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="1_si0s5"]
+[ext_resource type="Texture2D" uid="uid://bqc7l4t52fei5" path="res://assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="3_blosq"]
+[ext_resource type="Texture2D" uid="uid://2mlcv6k0oqsi" path="res://assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Standing (16 x 16).png" id="4_8dmma"]
+[ext_resource type="PackedScene" uid="uid://kk2ewaa3lwq6" path="res://prefabs/hitbox.tscn" id="5_blosq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blosq"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_uwh3v"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_si0s5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6u5kk"]
+resource_name = "hurt"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_blosq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wyeka"]
+resource_name = "standing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_8dmma")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_si0s5"]
+resource_name = "walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_si0s5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jyxi"]
+_data = {
+&"RESET": SubResource("Animation_uwh3v"),
+&"hurt": SubResource("Animation_6u5kk"),
+&"standing": SubResource("Animation_wyeka"),
+&"walk": SubResource("Animation_si0s5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dmma"]
+size = Vector2(12, 2)
+
+[node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_5i2um")
+
+[node name="texture" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_si0s5")
+hframes = 2
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_blosq")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4jyxi")
+}
+autoplay = "walk"
+speed_scale = 0.5
+movie_quit_on_finish = true
+
+[node name="wall_detector" type="RayCast2D" parent="."]
+position = Vector2(0, -7)
+target_position = Vector2(-8, 0)
+collision_mask = 6
+
+[node name="hitbox" parent="." instance=ExtResource("5_blosq")]
+position = Vector2(0, -7)
+
+[node name="collision2" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_8dmma")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
